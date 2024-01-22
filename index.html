@@ -136,7 +136,6 @@
             }
 
             async function checkKeySystem(keySystem, mediaConfig) {
-                console.log('==== media', mediaConfig, mediaConfig.initDataTypes)
                 const initDataType = mediaConfig.initDataTypes[0];
                 
                 const additionalConfigData = {
@@ -195,7 +194,6 @@
             }
             // Функция для проверки поддержки для конкретной keySystem
             function checkKeySystemSupport(keySystem, mediaConfigs) {
-                console.log('==== media configs', mediaConfigs)
                 const promises = mediaConfigs.map((mediaConfig) => mediaConfig.map(subConfig => checkKeySystem(keySystem, subConfig)));
                 return Promise.all(promises.flat(Infinity));
             }
