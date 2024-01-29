@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Check DRM initDataTypes Support</title>
         <style>
+            body {
+                background-color: white;
+            }
             table {
                 width: 100%;
                 border-collapse: collapse;
@@ -131,7 +134,6 @@
                                 );
                             });
                         });
-                        //({ keySystem, initDataType, audioContentType, videoContentType, types }, supported, error, method) 
                 }, Promise.resolve());
             }
 
@@ -139,8 +141,8 @@
                 const initDataType = mediaConfig.initDataTypes[0];
                 
                 const additionalConfigData = {
-                    audioContentType: mediaConfig.audioCapabilities[0]?.contentType || '-',
-                    videoContentType: mediaConfig.videoCapabilities[0]?.contentType || '-',
+                    audioContentType: mediaConfig.audioCapabilities[0] ?  mediaConfig.audioCapabilities[0].contentType : '-',
+                    videoContentType: mediaConfig.audioCapabilities[0] ? mediaConfig.videoCapabilities[0].contentType : '-',
                 }
                 let acess;
                 let types;
